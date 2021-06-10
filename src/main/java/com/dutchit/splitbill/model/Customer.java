@@ -8,10 +8,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-//@EqualsAndHashCode(callSuper = true)
-//@Data
-//@NoArgsConstructor
-//@RequiredArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "customers")
 public class Customer extends AuditModel {
@@ -21,26 +20,23 @@ public class Customer extends AuditModel {
     private long id;
 
     @NotNull
-    @NotBlank(message = "please enter your firstName")
+    @NotBlank(message = "must not be null")
     @Column(name = "first_name", columnDefinition = "text", nullable = false)
     private String firstName;
 
-
+    @NotNull
     @Column(name = "second_name", columnDefinition = "text", nullable = false)
-//    @NonNull
-    @NotBlank(message = "please enter your secondName")
+    @NotBlank(message = "must not be null")
     private String lastName;
 
-
-    @NotBlank(message = "please enter your emailId")
     @NotNull
+    @NotBlank(message = "must not be null")
     @Column(name = "email", columnDefinition = "text", nullable = false)
     private String email;
 
-
-    @NotBlank(message = "please enter your mobileNumber")
-//    @NonNull
-    @Size(min = 9, max = 9)
+    @NotNull
+    @NotBlank(message = "must not be null")
+    @Size(min = 10, max = 10)
     @Column(name = "mobile_number", columnDefinition = "text", nullable = false)
     private String mobileNumber;
 }

@@ -11,6 +11,9 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Transaction extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
